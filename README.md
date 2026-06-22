@@ -1,7 +1,9 @@
 # spi_to_usb
 
 **Difficulty:** Intermediate
+
 **Uses MCU:** Yes
+
 **External Hardware:** Arduino Uno (external SPI master)
 
 ## Overview
@@ -35,7 +37,7 @@ An Arduino Uno is used as the external SPI master. The Uno is a 5 V device, so t
 | 16            | `led`         | Output    | LED (shows last byte)    |
 
 ### FPGA Connections (link to Arduino — FPGA is slave)
-
+Note: FPGA_IO8 (FPGA GPIO8) is a PMOD Connector Pin
 | FPGA GPIO Pin | Signal Name   | Direction | Description                  |
 | ------------- | ------------- | --------- | ---------------------------- |
 | 0             | `ext_sck`     | Input     | SPI clock from master (via divider) |
@@ -94,8 +96,8 @@ The data path is: **Arduino (SPI master) → FPGA → RP2040 → PC USB**.
 * The Arduino Serial Monitor will show the sent bytes.
 * The Thonny console connected to the RP2040 will show the received bytes matching the sent bytes.
 
-![Hardware setup](images/hardware_setup.jpeg)
-
 ![Transmitted data](images/transmitted_data.png)
 
 ![Received data](images/received_data.png)
+
+![Hardware setup](images/hardware_setup.jpeg)
